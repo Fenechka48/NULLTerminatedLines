@@ -30,7 +30,7 @@ void main()
 	cout << str << endl;
 	cout << "Длина строки: " << string_length(str) << endl;
 	cout << "Строка в верхнем регистре: "; to_upper(str); 
-	Print(str);
+	Print(str); 
 
 }
 int  string_length(char str[])
