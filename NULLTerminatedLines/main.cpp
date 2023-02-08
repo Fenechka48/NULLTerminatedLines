@@ -1,4 +1,4 @@
-//NULLTerminatedLines
+ï»¿//NULLTerminatedLines
 #include <iostream>
 #include <windows.h>
 #include <conio.h> 
@@ -23,19 +23,19 @@ void main()
 	cout << str << endl;
 	cout << sizeof(str) << endl;*/
 	const int n = 256;
-	//char str[n] = "Õîðîøî    æèâåò     íà ñâåòå      Âèííè    Ïóõ";
-	char str[n] = "Àðãåíòèíà ìàíèò íåãðà";
-	cout << "Ââåäèòe ñòðîêó: "; 
+	//char str[n] = "Ð¥Ð¾Ñ€Ð¾ÑˆÐ¾    Ð¶Ð¸Ð²ÐµÑ‚     Ð½Ð° ÑÐ²ÐµÑ‚Ðµ      Ð’Ð¸Ð½Ð½Ð¸    ÐŸÑƒÑ…";
+	char str[n] = "ÐÑ€Ð³ÐµÐ½Ñ‚Ð¸Ð½Ð° Ð¼Ð°Ð½Ð¸Ñ‚ Ð½ÐµÐ³Ñ€Ð°";
+	cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚e ÑÑ‚Ñ€Ð¾ÐºÑƒ: "; 
 	SetConsoleCP(1251);
 	//cin >> str;
 	//cin.getline(str, n);
 	SetConsoleCP(866);
 	cout << str << endl;
-	cout << "Äëèíà ñòðîêè: " << string_length(str) << endl;
-	cout << "Ñòðîêà â âåðõíåì ðåãèñòðå: "; to_upper(str); Print(str); 
-	cout << "Ñòðîêà â íèæíåì ðåãèñòðå: "; to_lower(str); Print(str);
+	cout << "Ð”Ð»Ð¸Ð½Ð° ÑÑ‚Ñ€Ð¾ÐºÐ¸: " << string_length(str) << endl;
+	cout << "Ð¡Ñ‚Ñ€Ð¾ÐºÐ° Ð² Ð²ÐµÑ€Ñ…Ð½ÐµÐ¼ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ðµ: "; to_upper(str); Print(str); 
+	cout << "Ð¡Ñ‚Ñ€Ð¾ÐºÐ° Ð² Ð½Ð¸Ð¶Ð½ÐµÐ¼ Ñ€ÐµÐ³Ð¸ÑÑ‚Ñ€Ðµ: "; to_lower(str); Print(str);
 	srink(str); cout << str << endl;
-	cout << "Ñòðîêà " << (is_palindrome(str) ? "" : "ÍÅ") << " ïàëèíäðîì" << endl;
+	cout << "Ð¡Ñ‚Ñ€Ð¾ÐºÐ° " << (is_palindrome(str) ? "" : "ÐÐ•") << " Ð¿Ð°Ð»Ð¸Ð½Ð´Ñ€Ð¾Ð¼" << endl;
 }
 int  string_length(char str[])
 {
@@ -52,7 +52,7 @@ void to_upper(char str[])
 	{
 
 		if (str[i] >= 'a' && str[i]<='z')str[i] -= 32;
-	    if (str[i] >= 'à' && str[i] <= 'ÿ')str[i] -= 32;
+	    if (str[i] >= 'Ð°' && str[i] <= 'Ñ')str[i] -= 32;
 		str[i] = toupper(str[i]);
 	}
 	cout <<endl ;
@@ -95,14 +95,17 @@ void remove_symbol(char str[], char symbol)
 		}
 	}
 }
-bool is_palindrome(char str[])
+bool is_palindrome(char char str[])
 {
+	char* buffer = new char[strlen(str) + 1]{};
+	for (int i = 0; i < strlen(str); i++) buffer = str[i];
 	to_lower(str);
-	remove_symbol(str,' ');
+	remove_symbol(str,' ');                                                                                                                      
 	int n = strlen(str);
 	for (int i = 0; i < n / 2; i++)
 	{
 		if (str[i] != str[n - 1 - i]) return false;
 	}
+	delete[buffer];
 	return true;
 }
